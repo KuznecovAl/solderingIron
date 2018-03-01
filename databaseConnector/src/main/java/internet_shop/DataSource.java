@@ -22,7 +22,7 @@ public class DataSource {
     private final String PASSWORD;
 
     {
-        ResourceBundle rb = ResourceBundle.getBundle("resources\\database");
+        ResourceBundle rb = ResourceBundle.getBundle("database");
         if (rb == null) {
             URL = "UNDEFINED";
             USER = "UNDEFINED";
