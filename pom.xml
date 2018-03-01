@@ -9,6 +9,7 @@
         <module>databaseConnector</module>
         <module>dao</module>
         <module>entities</module>
+        <module>services</module>
     </modules>
     <name>solderingIron Web Maven </name>
     <url>http://maven.apache.org</url>
