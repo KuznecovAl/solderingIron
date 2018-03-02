@@ -10,6 +10,7 @@
         <module>dao</module>
         <module>entities</module>
         <module>services</module>
+        <module>int_shop_web</module>
     </modules>
     <name>solderingIron Web Maven </name>
     <url>http://maven.apache.org</url>
