@@ -4,5 +4,5 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface ItemDao extends DAO<Item>{
-    List<Item> getByOrderId(long orderId) throws SQLException;
+    List<Item> getByOrderId(Long orderId) throws SQLException;
 }

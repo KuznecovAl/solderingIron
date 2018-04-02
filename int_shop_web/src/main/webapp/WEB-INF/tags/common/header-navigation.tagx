@@ -44,7 +44,7 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <c:if test="${not empty user}">
-                            <li style="padding: 15px 15px"><span id="username" >Hi, ${user.name}!</span></li>
+                            <li style="padding: 15px 15px"><span id="username" >Hi, ${user.firstname}!</span></li>
                             <li><a href="${pageContext.request.contextPath}/frontController?command=settings">Settings</a></li>
                             <li><a href="${pageContext.request.contextPath}/frontController?command=logout">Exit</a></li>
 

@@ -1,5 +1,6 @@
 package internet_shop.command.impl;
 
+import internet_shop.Address;
 import internet_shop.User;
 import internet_shop.UserService;
 import internet_shop.UserServiceImpl;
@@ -48,20 +49,16 @@ public class SettingsController implements Controller {
             User user = (User) req.getSession().getAttribute("user");
             user.setEmail(email);
 
-            if (user.getPassword() != Encoder.encode(password)) {
+            if ((user.getPassword() != Encoder.encode(password))&(password!=null)&(password!="")) {
                 user.setPassword(Encoder.encode(password));
             }
 
 
-
+            Address address=new Address("Belarus",address_city,address_street,address_building,address_flat,address_index);
             user.setPhone(phone);
-            user.setName(name);
-            user.setLast_name(lname);
-            user.setAddress_city(address_city);
-            user.setAddress_street(address_street);
-            user.setAddress_building(address_building);
-            user.setAddress_flat(address_flat);
-            user.setAddress_index(address_index);
+            user.setFirstname(name);
+            user.setLastname(lname);
+            user.setAddress(address);
             user.setBirthday(LocalDate.parse(birthday, DateTimeFormatter.ofPattern("y-M-d")));
             user.setLang("RU");
             user.setPrivilege("2");

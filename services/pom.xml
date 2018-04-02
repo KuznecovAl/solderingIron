@@ -25,13 +25,7 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
-        <dependency>
-            <groupId>internet_shop</groupId>
-            <artifactId>databaseConnector</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
+                <dependency>
             <groupId>internet_shop</groupId>
             <artifactId>dao</artifactId>
             <version>1.0-SNAPSHOT</version>

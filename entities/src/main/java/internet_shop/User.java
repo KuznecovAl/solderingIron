@@ -1,56 +1,93 @@
 package internet_shop;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
+import org.hibernate.annotations.CreationTimestamp;
 
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
 
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "USERS")
+@ToString
 public class User {
 
-    private long id;
+    @Id
+    @GeneratedValue
+    @Column(name = "USER_ID")
+    private Long id;
+
+    @Column(name = "LGN")
     private String login;
+
+    @Column(name = "PWD")
     private String password;
-    private String name;
-    private String last_name;
+
+    @Column(name = "FNAME")
+    private String firstname;
+
+    @Column(name = "LNAME")
+    private String lastname;
+
+    @Column(name = "PRIVILEGE")
     private String privilege;
+
+    @Column(name = "EMAIL")
     private String email;
+
+    @Column(name = "PHONE")
     private String phone;
-    private String address_city;
-    private String address_street;
-    private String address_building;
-    private String address_flat;
-    private String address_index;
+
+    @Embedded
+    private Address address;
+
+    @Column(name = "LANG")
     private String lang;
+
+    @Column(name = "STS")
     private String status;
+
+    @Column(name = "BIRTHDAY")
     private LocalDate birthday;
 
+    @OneToMany(mappedBy = "user")
+    private List<Order> orders;
 
-    public User(String login, String password, String name, String last_name, String privilege,
-                String email, String phone, String address_city, String address_street, String address_building,
-                String address_flat, String address_index, String lang, String status, LocalDate birthday) {
-        this.login = login;
-        this.password = password;
-        this.name = name;
-        this.last_name = last_name;
-        this.privilege = privilege;
-        this.email = email;
-        this.phone = phone;
-        this.address_city = address_city;
-        this.address_street = address_street;
-        this.address_building = address_building;
-        this.address_flat = address_flat;
-        this.address_index = address_index;
-        this.lang = lang;
-        this.status = status;
-        this.birthday = birthday;
-    }
+    @CreationTimestamp
+    @Column(name = "CRT_TIME")
+    private LocalDateTime creationtime;
 
     public User(String login, String password, String email) {
         this.login = login;
         this.password = password;
         this.email = email;
+    }
+
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", privilege='" + privilege + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", address=" + address +
+                ", lang='" + lang + '\'' +
+                ", status='" + status + '\'' +
+                ", birthday=" + birthday +
+                ", creationtime=" + creationtime +
+                '}';
     }
 }

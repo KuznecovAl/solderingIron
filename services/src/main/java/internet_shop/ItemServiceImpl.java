@@ -5,51 +5,10 @@ import java.sql.SQLException;
 import java.util.List;
 
 
-public class ItemServiceImpl extends AbstractService implements ItemService {
+public class ItemServiceImpl implements ItemService {
+
     private static volatile ItemService INSTANCE = null;
     private ItemDao itemDao = ItemDaoImpl.getInstance();
-
-    @Override
-    public Item save(Item item) {
-        try {
-            item = itemDao.save(item);
-        } catch (SQLException e) {
-            throw new ServiceException("Error creating Item" + item);
-        }
-        return item;
-    }
-
-    @Override
-    public Item get(Serializable id) {
-        try {
-            return itemDao.get(id);
-        } catch (SQLException e) {
-            throw new ServiceException("Error geting Item by id " + id);
-        }
-    }
-
-    @Override
-    public void update(Item item) {
-        try {
-            itemDao.update(item);
-        } catch (SQLException e) {
-            throw new ServiceException("Error updating Item" + item);
-        }
-    }
-
-    @Override
-    public int delete(Serializable id) {
-        return 0;
-    }
-
-    @Override
-    public List<Item> getByOrderId(long orderId) {
-        try {
-            return itemDao.getByOrderId(orderId);
-        } catch (SQLException e) {
-            throw new ServiceException("Error getting all items");
-        }
-    }
 
     public static ItemService getInstance() {
         ItemService itemService = INSTANCE;
@@ -61,7 +20,66 @@ public class ItemServiceImpl extends AbstractService implements ItemService {
                 }
             }
         }
-
         return itemService;
     }
+
+    @Override
+    public List<Item> getByOrderId(Long orderId) {
+        try {
+            itemDao.openEm();
+            List res = itemDao.getByOrderId(orderId);
+            itemDao.closeEm();
+            return res;
+        } catch (SQLException e) {
+            throw new ServiceException("Error getting items by order id");
+        }
+    }
+
+    @Override
+    public Item save(Item item) {
+        try {
+            itemDao.openEmTransact();
+            item = itemDao.save(item);
+            itemDao.closeEmTransact();
+        } catch (SQLException e) {
+            throw new ServiceException("Error creating Item " + item);
+        }
+        return item;
+    }
+
+    @Override
+    public Item get(Serializable id) {
+        try {
+            itemDao.openEm();
+            Item item = itemDao.get(id);
+            itemDao.closeEm();
+            return item;
+        } catch (SQLException e) {
+            throw new ServiceException("Error getting Item by id " + id);
+        }
+    }
+
+    @Override
+    public void update(Item item) {
+        try {
+            itemDao.openEmTransact();
+            itemDao.update(item);
+            itemDao.closeEmTransact();
+        } catch (SQLException e) {
+            throw new ServiceException("Error updating Item " + item);
+        }
+    }
+
+    @Override
+    public void delete(Item item) {
+        try {
+            itemDao.openEmTransact();
+            itemDao.delete(item);
+            itemDao.closeEmTransact();
+        } catch (SQLException e) {
+            throw new ServiceException("Error deleting Item " + item);
+        }
+    }
+
+
 }

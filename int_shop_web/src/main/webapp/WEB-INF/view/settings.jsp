@@ -15,8 +15,7 @@
             </tr>
             <tr>
                 <td><b>Password</b></td>
-                <td><input type="password" name="password" maxlength="20" placeholder="новый пароль"
-                           value="новый пароль" /></td>
+                <td><input type="password" name="password" maxlength="20" placeholder="новый пароль"/></td>
             </tr>
             <tr>
                 <td><b>E-mail</b></td>
@@ -24,11 +23,11 @@
             </tr>
             <tr>
                 <td><b>Имя</b></td>
-                <td><input type="text" name="name" maxlength="50" placeholder="Имя" value="${user.name}" /></td>
+                <td><input type="text" name="name" maxlength="50" placeholder="Имя" value="${user.firstname}" /></td>
             </tr>
             <tr>
                 <td><b>Фамилья</b></td>
-                <td><input type="text" name="lname" maxlength="50" placeholder="Фамилия" value="${user.last_name}" /></td>
+                <td><input type="text" name="lname" maxlength="50" placeholder="Фамилия" value="${user.lastname}" /></td>
             </tr>
             <tr>
                 <td><b>Телефон</b></td>
@@ -37,27 +36,27 @@
             <tr>
                 <td><b>Город</b></td>
                 <td><input type="text" name="address_city" maxlength="50" placeholder="Город"
-                           value="${user.address_city}" /></td>
+                           value="${user.address.city}" /></td>
             </tr>
             <tr>
                 <td><b>Улица</b></td>
                 <td><input type="text" name="address_street" maxlength="50" placeholder="Улица"
-                           value="${user.address_street}" /></td>
+                           value="${user.address.street}" /></td>
             </tr>
             <tr>
                 <td><b>Дом</b></td>
                 <td><input type="text" name="address_building" maxlength="50" placeholder="Дом"
-                           value="${user.address_building}" /></td>
+                           value="${user.address.building}" /></td>
             </tr>
             <tr>
                 <td><b>Квартира</b></td>
                 <td><input type="text" name="address_flat" maxlength="50" placeholder="Квартира"
-                           value="${user.address_flat}"></td>
+                           value="${user.address.flat}"></td>
             </tr>
             <tr>
                 <td><b>Индекс</b></td>
                 <td><input type="text" name="address_index" maxlength="50" placeholder="Индекс"
-                           value="${user.address_index}" /></td>
+                           value="${user.address.index}" /></td>
             </tr>
             <tr>
                 <td><b>Дата рождения</b></td>

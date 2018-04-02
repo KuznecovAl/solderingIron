@@ -7,5 +7,9 @@ import java.util.List;
 public interface ProductDao extends DAO<Product>{
 
     List<Product> getAll() throws SQLException;
-    Product getByModelAndSupplier(String model, String supplier) throws SQLException;
+    //List<Product> getByOrder() throws SQLException;
+    //List<Product> getPopular() throws SQLException;
+    //Product getByModelAndSupplier(String model, String supplier) throws SQLException;
+
+
 }

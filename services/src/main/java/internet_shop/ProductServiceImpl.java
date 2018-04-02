@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 
-public class ProductServiceImpl extends AbstractService implements ProductService {
+public class ProductServiceImpl implements ProductService {
 
     private static volatile ProductService INSTANCE = null;
     private ProductDao productDao = ProductDaoImpl.getInstance();
@@ -21,63 +21,61 @@ public class ProductServiceImpl extends AbstractService implements ProductServic
                 }
             }
         }
-
         return productService;
-    }
-
-    @Override
-    public Product getByModelAndSupplier(String model, String supplier) {
-        try {
-            return productDao.getByModelAndSupplier(model, supplier);
-        } catch (SQLException e) {
-            throw new ServiceException("Error getting by Supplier:" + supplier + " and Model:" + model);
-        }
     }
 
     @Override
     public List<Product> getAll() {
         try {
-            startTransaction();
-            List<Product> list = productDao.getAll();
-            commit();
-            return list;
+            productDao.openEm();
+            List res = productDao.getAll();
+            productDao.closeEm();
+            return res;
         } catch (SQLException e) {
-            rollback();
-            throw new ServiceException("Error getting Products");
+            throw new ServiceException("Error getting all Products");
         }
     }
-
     @Override
     public Product save(Product product) {
         try {
+            productDao.openEmTransact();
             product = productDao.save(product);
+            productDao.closeEmTransact();
         } catch (SQLException e) {
-            throw new ServiceException("Error creating Item" + product);
+            throw new ServiceException("Error creating Product " + product);
         }
         return product;
     }
-
     @Override
     public Product get(Serializable id) {
         try {
-            return productDao.get(id);
+            productDao.openEm();
+            Product product = productDao.get(id);
+            productDao.closeEm();
+            return product;
         } catch (SQLException e) {
-            throw new ServiceException("Error geting Item by id " + id);
+            throw new ServiceException("Error getting User by id " + id);
         }
     }
-
     @Override
     public void update(Product product) {
         try {
+            productDao.openEmTransact();
             productDao.update(product);
+            productDao.closeEmTransact();
         } catch (SQLException e) {
-            throw new ServiceException("Error updating Item" + product);
+            throw new ServiceException("Error updating Product " + product);
         }
     }
-
     @Override
-    public int delete(Serializable id) {
-        return 0;
+    public void delete(Product product) {
+        try {
+            productDao.openEmTransact();
+            productDao.delete(product);
+            productDao.closeEmTransact();
+        } catch (SQLException e) {
+            throw new ServiceException("Error deleting Product " + product);
+        }
     }
 
 

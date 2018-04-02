@@ -38,7 +38,7 @@ public class RegController implements Controller {
             user.setPassword(Encoder.encode(password));
             user.setPrivilege("3");
             user.setStatus("new");
-            userService.saveNew(user);
+            userService.save(user);
             req.getSession().setAttribute("user", user);
             String contextPath = req.getContextPath();
             resp.sendRedirect(contextPath + "/frontController?command=orders");

@@ -7,9 +7,12 @@ import java.util.List;
 
 public interface OrderService {
 
-    Order createOrder(long userId, long productId, int quantity);
+    Order createOrder(Long userId, Long productId, Integer quantity);
+
+    Order save(Order order);
     Order get(Serializable id);
     void update(Order order);
-    int delete(Serializable id);
-    List<Order> getByUserId(long userId);
+    void delete(Order order);
+
+    List<Order> getByUserId(Long userId);
 }

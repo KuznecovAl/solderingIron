@@ -1,10 +1,17 @@
 package internet_shop;
 
+
+import lombok.Getter;
+
 import java.io.Serializable;
 import java.sql.SQLException;
+import java.util.List;
 
-public class UserServiceImpl extends AbstractService implements UserService {
+
+public class UserServiceImpl implements UserService {
+
     private static volatile UserService INSTANCE = null;
+    @Getter
     private UserDao userDao = UserDaoImpl.getInstance();
 
     public static UserService getInstance() {
@@ -17,7 +24,6 @@ public class UserServiceImpl extends AbstractService implements UserService {
                 }
             }
         }
-
         return userService;
     }
 
@@ -25,68 +31,65 @@ public class UserServiceImpl extends AbstractService implements UserService {
     @Override
     public User save(User user) {
         try {
-            startTransaction();
+            userDao.openEmTransact();
             user = userDao.save(user);
-            commit();
+            userDao.closeEmTransact();
         } catch (SQLException e) {
-            throw new ServiceException("Error creating Item" + user);
+            throw new ServiceException("Error creating User " + user);
         }
         return user;
     }
-
-    @Override
-    public User saveNew(User user) {
-        try {
-            startTransaction();
-            user = userDao.saveNew(user);
-            commit();
-        } catch (SQLException e) {
-            throw new ServiceException("Error creating Item" + user);
-        }
-        return user;
-    }
-
     @Override
     public User get(Serializable id) {
         try {
-            return userDao.get(id);
+            userDao.openEm();
+            User user = userDao.get(id);
+            userDao.closeEm();
+            return user;
         } catch (SQLException e) {
-            throw new ServiceException("Error geting Item by id " + id);
+            throw new ServiceException("Error getting User by id " + id);
         }
     }
-
     @Override
     public void update(User user) {
         try {
-            startTransaction();
+            userDao.openEmTransact();
             userDao.update(user);
-            commit();
+            userDao.closeEmTransact();
         } catch (SQLException e) {
-            throw new ServiceException("Error updating Item" + user);
+            throw new ServiceException("Error updating User " + user);
         }
     }
-
     @Override
-    public int delete(Serializable id) {
-        return 0;
+    public void delete(User user) {
+        try {
+            userDao.openEmTransact();
+            userDao.delete(user);
+            userDao.closeEmTransact();
+        } catch (SQLException e) {
+            throw new ServiceException("Error deleting User " + user);
+        }
     }
-
+    @Override
+    public List<User> getAll(){
+        try {
+            userDao.openEm();
+            List res = userDao.getAll();
+            userDao.closeEm();
+            return res;
+        } catch (SQLException e) {
+            throw new ServiceException("Error getting all User");
+        }
+    }
     @Override
     public User getByLogin(String login) {
         try {
-            return userDao.getByLogin(login);
+            userDao.openEm();
+            User user = userDao.getByLogin(login);
+            userDao.closeEm();
+            return user;
         } catch (SQLException e) {
-            throw new ServiceException("Error getting User by login" + login);
+            throw new ServiceException("Error geting User by login " + login);
         }
     }
-
-
-//    @Override
-//    public List<User> getByOrderId(long orderId) {
-//        try {
-//            return userDao.getByOrderId(orderId);
-//        } catch (SQLException e) {
-//            throw new ServiceException("Error getting all items");
-//        }
-//    }
 }

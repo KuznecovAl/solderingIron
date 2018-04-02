@@ -32,14 +32,14 @@ public class OrderController implements Controller {
         List<Order> orders = orderService.getByUserId(user.getId());
         List<Item> itemss = new ArrayList<>();
         List<Product> products = new ArrayList<>();
+//
+//        for (int i = 0; i < orders.size(); i++) {
+//            itemss.addAll(itemService.getByOrderId(orders.get(i).getId()));
+//        }
 
-        for (int i = 0; i < orders.size(); i++) {
-            itemss.addAll(itemService.getByOrderId(orders.get(i).getId()));
-        }
-
-        for (int i = 0; i < itemss.size(); i++) {
-            products.add(productService.get(itemss.get(i).getId_product()));
-        }
+//        for (int i = 0; i < itemss.size(); i++) {
+//            products.addAll(itemss.get(i).getProducts());
+//        }
 
         req.setAttribute("orders", orders);
         req.setAttribute("itemss", itemss);
