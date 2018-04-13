@@ -5,23 +5,28 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 
 @Data
 @NoArgsConstructor
-@ToString(exclude = "user")
+@ToString(exclude = {"user","items"})
 @AllArgsConstructor
 @Entity
 @Table(name = "ORDERS")
 public class Order implements Serializable {
 
     @Id
-    @GeneratedValue
+    @GenericGenerator(name = "ord-usr",
+            strategy = "foreign",
+            parameters = @org.hibernate.annotations.Parameter(name = "property", value = "user"))
+    @GeneratedValue(generator = "ord-usr")
     @Column(name = "ORDER_ID")
     private Long id;
 
@@ -36,8 +41,8 @@ public class Order implements Serializable {
     @JoinColumn(name = "USER_ID")
     private User user;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Item> items;
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    private List<Item> items=new ArrayList<>();
 
 
 }

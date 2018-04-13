@@ -9,15 +9,15 @@ import org.hibernate.annotations.CreationTimestamp;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
-
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table(name = "USERS")
-@ToString
+@ToString(exclude = {"orders","address"})
 public class User {
 
     @Id
@@ -59,35 +59,19 @@ public class User {
     private LocalDate birthday;
 
     @OneToMany(mappedBy = "user")
-    private List<Order> orders;
+    private List<Order> orders=new ArrayList<>();
 
     @CreationTimestamp
     @Column(name = "CRT_TIME")
     private LocalDateTime creationtime;
 
-    public User(String login, String password, String email) {
+    public User(String login, String password, String email, Address address) {
         this.login = login;
         this.password = password;
         this.email = email;
+        this.address=address;
     }
 
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", login='" + login + '\'' +
-                ", password='" + password + '\'' +
-                ", firstname='" + firstname + '\'' +
-                ", lastname='" + lastname + '\'' +
-                ", privilege='" + privilege + '\'' +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                ", address=" + address +
-                ", lang='" + lang + '\'' +
-                ", status='" + status + '\'' +
-                ", birthday=" + birthday +
-                ", creationtime=" + creationtime +
-                '}';
-    }
+
 }

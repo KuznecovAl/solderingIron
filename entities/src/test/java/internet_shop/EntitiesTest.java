@@ -20,7 +20,7 @@ public class EntitiesTest {
         Address aa=new Address("1","2","3","4","5","6");
 
         a.setBuilding("25");
-        i.setDiscont(10l);
+        i.setDiscount(10);
         p.setDescription("xxx");
         o.setUser(u);
         u.setOrders(new ArrayList<>());

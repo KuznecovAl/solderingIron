@@ -3,10 +3,12 @@ package internet_shop;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 
 
+@ToString(exclude = "item")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -43,8 +45,7 @@ public class Product {
     @Column(name = "PRICE")
     private float price;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ITEM_ID")
+    @OneToOne(mappedBy = "product", cascade = {CascadeType.ALL})
     private Item item;
 
 

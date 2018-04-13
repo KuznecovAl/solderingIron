@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.List;
@@ -18,7 +19,10 @@ import java.util.List;
 public class Item {
 
     @Id
-    @GeneratedValue
+    @GenericGenerator(name = "item-prod",
+            strategy = "foreign",
+            parameters = @org.hibernate.annotations.Parameter(name = "property", value = "product"))
+    @GeneratedValue(generator = "item-prod")
     @Column(name = "ITEM_ID")
     private Long id;
 
@@ -26,16 +30,18 @@ public class Item {
     @JoinColumn(name = "ORDER_ID")
     private Order order;
 
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "PROD_ID")
+    private Product product;
 
-    //TODO ????
-    @OneToMany(mappedBy = "item", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Product> products;
-
-    @Column(name = "QUANT")
+    @Column(name = "QUANT_IN_ORDER")
     private Long quantity;
 
-    @Column(name = "DISCONT")
-    private Long discont;
+    @Column(name = "DISCOUNT")
+    private Integer discount;
+
+    @Column(name = "STS_ITEM")
+    private String status;
 
 }
 

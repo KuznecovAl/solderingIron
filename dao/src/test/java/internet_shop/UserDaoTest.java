@@ -14,16 +14,17 @@ public class UserDaoTest {
     @Before
     public void init() throws SQLException {
         UserDao ud = UserDaoImpl.getInstance();
+        OrderDao od=OrderDaoImpl.getInstance();
         ud.openEmTransact();
 
+
         Address address = new Address("Belarus", "Minsk", "Germanovskaya", "17", "107", "220028");
-        User user = new User(null, "Kozma", "pass", "Alexandr", "Kuznecov", "0", "7515313@gmail.com", "+375297515313",
-                address, "RU", "new", LocalDate.parse("1983-11-26"), new ArrayList<>(), null);
-        Order order = new Order(null, null, "xxx", user, null);
+        User user = new User( "Kozma", "pass", "7515313@mail.ru", address);
+
+        Order order = od.get(1L);
 
 
         ud.save(user);
-
         user.getOrders().add(order);
 
 
@@ -41,6 +42,8 @@ public class UserDaoTest {
             ud.openEm();
             User u = ud.getByLogin("Kozma");
             System.out.println(u.toString());
+            System.out.println(u.getOrders().get(0).toString());
+            System.out.println(u.getOrders().get(0).getItems().get(0).toString());
 
 
             ud.getEm().getTransaction().begin();
@@ -54,10 +57,7 @@ public class UserDaoTest {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-
-    }
-
+   }
 
     @AfterClass
     public static void cleanUp() {
