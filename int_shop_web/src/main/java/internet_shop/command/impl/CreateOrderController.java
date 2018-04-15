@@ -1,9 +1,9 @@
 package internet_shop.command.impl;
 
 import internet_shop.entities.Order;
-import internet_shop.services.OrderService;
+import internet_shop.services.old.OrderService;
 import internet_shop.entities.User;
-import internet_shop.services.OrderServiceImpl;
+import internet_shop.services.old.OrderServiceImpl;
 import internet_shop.command.Controller;
 
 import javax.servlet.RequestDispatcher;

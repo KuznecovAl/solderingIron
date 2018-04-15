@@ -1,8 +1,8 @@
-package internet_shop.services;
+package internet_shop.services.old;
 
 
-import internet_shop.dao.UserDao;
-import internet_shop.dao.UserDaoImpl;
+import internet_shop.dao.old.UserDao;
+import internet_shop.dao.old.UserDaoImpl;
 import internet_shop.entities.User;
 import lombok.Getter;
 

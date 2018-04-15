@@ -1,7 +1,7 @@
 package internet_shop.command.impl;
 
-import internet_shop.services.ProductService;
-import internet_shop.services.ProductServiceImpl;
+import internet_shop.services.old.ProductService;
+import internet_shop.services.old.ProductServiceImpl;
 import internet_shop.command.Controller;
 
 import javax.servlet.ServletException;

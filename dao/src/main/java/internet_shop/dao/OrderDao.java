@@ -1,11 +1,13 @@
 package internet_shop.dao;
 
 
-import internet_shop.entities.Order;
-
 import java.sql.SQLException;
 import java.util.List;
 
-public interface OrderDao extends DAO <Order> {
-    List<Order> getByUserId(Long userId) throws SQLException;
+
+public interface OrderDao<T> extends DAO<T> {
+
+    List<T> getByUserId(Long userId) throws SQLException;
+
+
 }

@@ -1,7 +1,7 @@
-package internet_shop.services;
+package internet_shop.services.old;
 
-import internet_shop.dao.ItemDao;
-import internet_shop.dao.ItemDaoImpl;
+import internet_shop.dao.old.ItemDao;
+import internet_shop.dao.old.ItemDaoImpl;
 import internet_shop.entities.Item;
 
 import java.io.Serializable;

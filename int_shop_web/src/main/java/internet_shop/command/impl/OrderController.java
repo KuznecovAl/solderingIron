@@ -4,12 +4,12 @@ import internet_shop.entities.Item;
 import internet_shop.entities.Order;
 import internet_shop.entities.Product;
 import internet_shop.entities.User;
-import internet_shop.services.ItemService;
-import internet_shop.services.OrderService;
-import internet_shop.services.ProductService;
-import internet_shop.services.ItemServiceImpl;
-import internet_shop.services.OrderServiceImpl;
-import internet_shop.services.ProductServiceImpl;
+import internet_shop.services.old.ItemService;
+import internet_shop.services.old.OrderService;
+import internet_shop.services.old.ProductService;
+import internet_shop.services.old.ItemServiceImpl;
+import internet_shop.services.old.OrderServiceImpl;
+import internet_shop.services.old.ProductServiceImpl;
 import internet_shop.command.Controller;
 
 import javax.servlet.RequestDispatcher;

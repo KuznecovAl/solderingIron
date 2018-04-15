@@ -2,8 +2,8 @@ package internet_shop.command.impl;
 
 import internet_shop.entities.Address;
 import internet_shop.entities.User;
-import internet_shop.services.UserService;
-import internet_shop.services.UserServiceImpl;
+import internet_shop.services.old.UserService;
+import internet_shop.services.old.UserServiceImpl;
 import internet_shop.auth.Encoder;
 import internet_shop.command.Controller;
 

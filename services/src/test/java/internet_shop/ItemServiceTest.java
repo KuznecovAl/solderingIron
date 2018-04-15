@@ -1,8 +1,8 @@
 package internet_shop;
 
 
-import internet_shop.services.ItemService;
-import internet_shop.services.ItemServiceImpl;
+import internet_shop.services.old.ItemService;
+import internet_shop.services.old.ItemServiceImpl;
 import org.junit.Test;
 
 import java.sql.SQLException;

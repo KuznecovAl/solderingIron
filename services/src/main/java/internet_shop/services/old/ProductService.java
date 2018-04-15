@@ -1,4 +1,4 @@
-package internet_shop.services;
+package internet_shop.services.old;
 
 
 import internet_shop.entities.Product;
