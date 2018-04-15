@@ -1,4 +1,4 @@
-package internet_shop;
+package internet_shop.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,7 +7,6 @@ import lombok.ToString;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.util.List;
 
 
 @Data
@@ -31,7 +30,7 @@ public class Item {
     private Order order;
 
     @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "PROD_ID")
+    @PrimaryKeyJoinColumn(name = "PROD_ID")
     private Product product;
 
     @Column(name = "QUANT_IN_ORDER")

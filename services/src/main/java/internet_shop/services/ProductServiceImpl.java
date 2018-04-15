@@ -1,5 +1,9 @@
-package internet_shop;
+package internet_shop.services;
 
+
+import internet_shop.dao.ProductDao;
+import internet_shop.dao.ProductDaoImpl;
+import internet_shop.entities.Product;
 
 import java.io.Serializable;
 import java.sql.SQLException;

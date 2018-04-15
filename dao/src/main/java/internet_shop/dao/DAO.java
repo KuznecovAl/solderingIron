@@ -1,4 +1,4 @@
-package internet_shop;
+package internet_shop.dao;
 
 
 import javax.persistence.EntityManager;

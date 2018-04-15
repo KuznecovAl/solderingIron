@@ -1,5 +1,6 @@
 package internet_shop;
 
+import internet_shop.entities.*;
 import org.junit.Assert;
 
 import java.util.ArrayList;

@@ -1,7 +1,8 @@
-package internet_shop;
+package internet_shop.dao;
 
 
-import javax.persistence.EntityManager;
+import internet_shop.entities.User;
+
 import java.sql.SQLException;
 import java.util.List;
 

@@ -1,8 +1,10 @@
-package internet_shop;
+package internet_shop.services;
+
+import internet_shop.dao.*;
+import internet_shop.entities.Order;
 
 import java.io.Serializable;
 import java.sql.SQLException;
-import java.time.LocalDateTime;
 import java.util.List;
 
 

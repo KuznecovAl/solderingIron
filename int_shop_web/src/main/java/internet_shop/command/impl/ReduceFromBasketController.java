@@ -1,8 +1,8 @@
 package internet_shop.command.impl;
 
 import com.google.gson.Gson;
-import internet_shop.OrderService;
-import internet_shop.OrderServiceImpl;
+import internet_shop.services.OrderService;
+import internet_shop.services.OrderServiceImpl;
 import internet_shop.command.Controller;
 import internet_shop.vo.BasketVO;
 

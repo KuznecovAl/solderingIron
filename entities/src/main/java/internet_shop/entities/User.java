@@ -1,4 +1,4 @@
-package internet_shop;
+package internet_shop.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

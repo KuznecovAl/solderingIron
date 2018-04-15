@@ -1,4 +1,6 @@
-package internet_shop;
+package internet_shop.dao;
+
+import internet_shop.entities.Item;
 
 import java.sql.SQLException;
 import java.util.List;

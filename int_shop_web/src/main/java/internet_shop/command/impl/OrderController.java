@@ -1,15 +1,15 @@
 package internet_shop.command.impl;
 
-import internet_shop.Item;
-import internet_shop.Order;
-import internet_shop.Product;
-import internet_shop.User;
-import internet_shop.ItemService;
-import internet_shop.OrderService;
-import internet_shop.ProductService;
-import internet_shop.ItemServiceImpl;
-import internet_shop.OrderServiceImpl;
-import internet_shop.ProductServiceImpl;
+import internet_shop.entities.Item;
+import internet_shop.entities.Order;
+import internet_shop.entities.Product;
+import internet_shop.entities.User;
+import internet_shop.services.ItemService;
+import internet_shop.services.OrderService;
+import internet_shop.services.ProductService;
+import internet_shop.services.ItemServiceImpl;
+import internet_shop.services.OrderServiceImpl;
+import internet_shop.services.ProductServiceImpl;
 import internet_shop.command.Controller;
 
 import javax.servlet.RequestDispatcher;

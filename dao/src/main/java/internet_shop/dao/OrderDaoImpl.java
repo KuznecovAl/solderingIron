@@ -1,5 +1,7 @@
-package internet_shop;
+package internet_shop.dao;
 
+import internet_shop.entities.Order;
+import internet_shop.entities.User;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.criteria.*;

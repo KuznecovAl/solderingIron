@@ -1,6 +1,9 @@
-package internet_shop;
+package internet_shop.services;
 
 
+import internet_shop.dao.UserDao;
+import internet_shop.dao.UserDaoImpl;
+import internet_shop.entities.User;
 import lombok.Getter;
 
 import java.io.Serializable;

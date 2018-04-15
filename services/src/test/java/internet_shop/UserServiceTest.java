@@ -1,6 +1,9 @@
 package internet_shop;
 
 
+import internet_shop.entities.User;
+import internet_shop.services.UserService;
+import internet_shop.services.UserServiceImpl;
 import org.junit.Test;
 import java.sql.SQLException;
 import java.util.List;

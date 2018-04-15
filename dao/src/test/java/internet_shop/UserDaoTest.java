@@ -1,20 +1,22 @@
 package internet_shop;
 
 
+import internet_shop.dao.*;
+import internet_shop.entities.Address;
+import internet_shop.entities.Order;
+import internet_shop.entities.User;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.util.ArrayList;
 
 
 public class UserDaoTest {
     @Before
     public void init() throws SQLException {
         UserDao ud = UserDaoImpl.getInstance();
-        OrderDao od=OrderDaoImpl.getInstance();
+        OrderDao od= OrderDaoImpl.getInstance();
         ud.openEmTransact();
 
 

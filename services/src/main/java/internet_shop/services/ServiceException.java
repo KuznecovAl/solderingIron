@@ -1,4 +1,4 @@
-package internet_shop;
+package internet_shop.services;
 
 public class ServiceException extends RuntimeException{
     public ServiceException(String message) {

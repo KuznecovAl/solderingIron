@@ -1,5 +1,7 @@
-package internet_shop;
+package internet_shop.services;
 
+
+import internet_shop.entities.Item;
 
 import java.io.Serializable;
 import java.util.List;
