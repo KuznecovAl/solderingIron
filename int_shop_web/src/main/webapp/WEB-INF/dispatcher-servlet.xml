@@ -11,9 +11,11 @@
                            http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
     <import resource="classpath*:beans-services.xml"/>
+
     <mvc:resources mapping="/resources/**" location="assests"/>
     <mvc:default-servlet-handler/>
     <mvc:annotation-driven/>
+    <context:annotation-config/>
     <context:component-scan base-package="internet_shop.command"/>
 
     <bean id="tilesConfigurer"
@@ -35,8 +37,8 @@
     <bean id="localeResolver"
           class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
         <property name="defaultLocale" value="ru"/>
-        <property name="cookieName" value="LocaleCookie"></property>
-        <property name="cookieMaxAge" value="3600"></property>
+        <property name="cookieName" value="LocaleCookie"/>
+        <property name="cookieMaxAge" value="3600"/>
     </bean>
 
     <mvc:interceptors>

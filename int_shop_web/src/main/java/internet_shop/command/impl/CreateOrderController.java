@@ -3,7 +3,7 @@ package internet_shop.command.impl;
 import internet_shop.entities.Order;
 import internet_shop.services.old.OrderService;
 import internet_shop.entities.User;
-import internet_shop.services.old.OrderServiceImpl;
+import internet_shop.services.old.Ord;
 import internet_shop.command.Controller;
 
 import javax.servlet.RequestDispatcher;
@@ -14,7 +14,7 @@ import java.io.IOException;
 
 
 public class CreateOrderController implements Controller {
-    private OrderService orderService = OrderServiceImpl.getInstance();
+    private OrderService orderService = Ord.getInstance();
 
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

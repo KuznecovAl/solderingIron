@@ -2,13 +2,14 @@ package internet_shop.services.old;
 
 import internet_shop.dao.old.*;
 import internet_shop.entities.Order;
+import internet_shop.services.impl.ServiceException;
 
 import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.List;
 
 
-public class OrderServiceImpl implements OrderService {
+public class Ord implements OrderService {
     private static volatile OrderService INSTANCE = null;
 
     private OrderDao orderDao = OrderDaoImpl.getInstance();
@@ -21,7 +22,7 @@ public class OrderServiceImpl implements OrderService {
             synchronized (OrderDaoImpl.class) {
                 orderService = INSTANCE;
                 if (orderService == null) {
-                    INSTANCE = orderService = new OrderServiceImpl();
+                    INSTANCE = orderService = new Ord();
                 }
             }
         }

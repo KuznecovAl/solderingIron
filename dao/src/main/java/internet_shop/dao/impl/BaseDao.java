@@ -2,14 +2,18 @@ package internet_shop.dao.impl;
 
 import internet_shop.dao.DAO;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.io.Serializable;
 
+@NoArgsConstructor
 @Repository
 public class BaseDao<T> implements DAO<T> {
+    @Setter
     Class<T> clazz;
     @PersistenceContext
     @Getter

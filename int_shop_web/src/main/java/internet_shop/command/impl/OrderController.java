@@ -8,7 +8,7 @@ import internet_shop.services.old.ItemService;
 import internet_shop.services.old.OrderService;
 import internet_shop.services.old.ProductService;
 import internet_shop.services.old.ItemServiceImpl;
-import internet_shop.services.old.OrderServiceImpl;
+import internet_shop.services.old.Ord;
 import internet_shop.services.old.ProductServiceImpl;
 import internet_shop.command.Controller;
 
@@ -22,7 +22,7 @@ import java.util.List;
 
 
 public class OrderController implements Controller {
-    private OrderService orderService = OrderServiceImpl.getInstance();
+    private OrderService orderService = Ord.getInstance();
     private ItemService itemService = ItemServiceImpl.getInstance();
     private ProductService productService = ProductServiceImpl.getInstance();
 
