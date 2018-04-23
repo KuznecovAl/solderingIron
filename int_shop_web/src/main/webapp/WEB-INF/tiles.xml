@@ -18,7 +18,7 @@
 
 
     <definition name="loginPage" extends="default">
-        <put-attribute name="title" value="LOG IN"/>
+        <put-attribute name="title" value="log.in"/>
         <put-attribute name="body" value="/WEB-INF/view/login/body.jsp"/>
     </definition>
 
