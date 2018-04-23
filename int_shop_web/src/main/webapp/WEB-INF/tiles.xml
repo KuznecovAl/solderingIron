@@ -3,16 +3,34 @@
         "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
         "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
 <tiles-definitions>
-    <definition name="default" template="/WEB-INF/view/layouts/default.jspx">
-        <put-attribute name="title" value="Web project"/>
-        <put-attribute name="header" value="/WEB-INF/view/common/header.jspx"/>
+    <definition name="default" template="/WEB-INF/view/layouts/default.jsp">
+        <put-attribute name="title" value=""/>
+        <put-attribute name="header" value="/WEB-INF/view/common/header.jsp"/>
+        <put-attribute name="menu" value="/WEB-INF/view/common/menu.jsp"/>
         <put-attribute name="body" value=""/>
-        <put-attribute name="footer" value="/WEB-INF/view/common/footer.jspx"/>
+        <put-attribute name="footer" value="/WEB-INF/view/common/footer.jsp"/>
     </definition>
 
-    <definition name="persons/main" extends="default">
-        <put-attribute name="title" value="Persons Info"/>
-        <put-attribute name="body" value="/WEB-INF/view/person/main.jspx"/>
+    <definition name="welcomePage" extends="default">
+        <put-attribute name="title" value="WELCOME TO SOLDERING IRON SHOP"/>
+        <put-attribute name="body" value="/WEB-INF/view/welcome/body.jsp"/>
     </definition>
+
+
+    <definition name="loginPage" extends="default">
+        <put-attribute name="title" value="LOG IN"/>
+        <put-attribute name="body" value="/WEB-INF/view/login/body.jsp"/>
+    </definition>
+
+    <definition name="regPage" extends="default">
+        <put-attribute name="title" value="REGISTRATION"/>
+        <put-attribute name="body" value="/WEB-INF/view/registration/body.jsp"/>
+    </definition>
+
+    <definition name="settingsPage" extends="default">
+        <put-attribute name="title" value="SETTINGS"/>
+        <put-attribute name="body" value="/WEB-INF/view/settings/body.jsp"/>
+    </definition>
+
 </tiles-definitions>
 

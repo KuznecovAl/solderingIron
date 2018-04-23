@@ -1,39 +1,33 @@
-$(document).ready(function () {
-    $('.addProductBtn').click(function () {
-        addProduct($(this));
+$(document).ready(function(){
+    $('#addPerson').click(function () {
+        addPerson();
     });
-    $('.reduceProductBtn').click(function () {
-        reduceProduct($(this));
+    $('#deletePerson').click(function () {
+        deletePerson();
     });
 });
 
-function addProduct(element) {
-    var productId = $(element).attr('id');
-    var json = JSON.stringify(productId);
-    console.log(json);
-    $.ajax({
-        type: 'get',
-        url: contextUrl + '/frontController?command=addProduct&productId=' + productId
-    }).done(function (data) {
-        $('#count'+productId).text(data);
-    }).fail(function (data) {
-        if (console && console.log) {
-            console.log("Error data:", data);
-        }
-    });
+
+function addPerson() {
+    $('#personForm').prop('action', 'add.form');
+    $('#personButton').prop('value', 'Add person');
+    $('#personForm').show();
 }
 
-function reduceProduct(element) {
-    var productId = $(element).attr('id');
-    $.ajax({
-        type: 'post',
-        url: contextUrl + '/frontController?command=reduceProduct&productId='+ productId
-        // data:{command:'reduceProduct', id:productId}
-    }).done(function (data) {
-        $('#count'+productId).text(data);
-    }).fail(function (data) {
-        if (console && console.log) {
-            console.log("Error data:", data);
-        }
-    });
+function deletePerson() {
+    $('#personForm').prop('action', 'delete.form');
+    $('#personButton').prop('value', 'Delete person');
+    $('#personForm').show();
+}
+
+function switchLocale(url) {
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url, false);
+    xhr.send();
+
+    if (xhr.status != 200)
+        alert( url + ', ' + xhr.status + ', ' + xhr.statusText );
+    else
+        location.reload(true);
 }

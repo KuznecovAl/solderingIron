@@ -16,7 +16,7 @@
     <mvc:default-servlet-handler/>
     <mvc:annotation-driven/>
     <context:annotation-config/>
-    <context:component-scan base-package="internet_shop.command"/>
+    <context:component-scan base-package="internet_shop.controller"/>
 
     <bean id="tilesConfigurer"
           class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">

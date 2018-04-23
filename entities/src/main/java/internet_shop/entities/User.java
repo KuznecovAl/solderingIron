@@ -36,7 +36,7 @@ public class User {
 
     @Column(name = "LNAME")
     private String lastname;
-
+/*ROLE_+ADMIN,MODER,USER,GUEST*/
     @Column(name = "PRIVILEGE")
     private String privilege;
 
@@ -51,8 +51,8 @@ public class User {
 
     @Column(name = "LANG")
     private String lang;
-
-    @Column(name = "STS")
+/*VIP,REG,NEW,GUE,DEL*/
+    @Column(name = "STATE")
     private String status;
 
     @Column(name = "BIRTHDAY")
