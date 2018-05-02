@@ -6,6 +6,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -36,7 +37,8 @@ public class LoginController {
 
 
     @RequestMapping(value = "/access_denied", method = RequestMethod.GET)
-    public String accessDeniedPage(ModelMap model) {
+    public String accessDeniedPage(ModelAndView model) {
+
         //fillModel(model);
         //model.addAttribute("user", getPrincipal());
         return "welcomePage";

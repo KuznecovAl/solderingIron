@@ -5,19 +5,54 @@
 
 <table width="100%" border="0">
     <tr>
+
         <td align="center" valign="center" bgcolor="#deb887">
             <img alt="SOLDERING IRON" src="${pageContext.request.contextPath}/assests/pic/si_main.jpg"/>
         </td>
 
-        <td width="63%" align="center" valign="center" bgcolor="#deb887">
-            МЕНЮ
+
+
+
+
+
+        <td width="63%" align="center" valign="center" bgcolor="#deb887" >
+            <table border="1">
+                <tr>
+                    <td>
+                            1
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                                                    2
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                            3
+                    </td>
+                </tr>
+            </table>
         </td>
+
+
+
+
+
+
+
+
+
+
+
+
 
         <td align="center" valign="top" bgcolor="#deb887">
 
             <%--LOCALE--%>
 
             <c:set var="locale" value="${pageContext.response.locale.language}"/>
+
             <c:if test="${locale eq 'en'}">
                 <li><a href="?locale=ru"><spring:message code="header.locale.ru"/></a></li>
                 <li><spring:message code="header.locale.en"/></li>
@@ -27,14 +62,12 @@
                 <li><spring:message code="header.locale.ru"/></li>
                 <li><a href="?locale=en"><spring:message code="header.locale.en"/></a></li>
             </c:if>
-            <br/>
+
+                <br/>
 
             <%--LOGIN NOT--%>
 
             <sec:authorize access="isAnonymous()">
-                ${pageContext.request.servletPath}</br>
-                ${pageContext.request.contextPath}</br>
-                ${pageContext}</br>
 
                 <c:if test="${not(pageContext.request.servletPath eq 'loginPage' or pageContext.request.servletPath eq 'regPage')}">
                     <li><a href="${pageContext.request.contextPath}/login"><spring:message code="login.signin"/></a><br/></li>

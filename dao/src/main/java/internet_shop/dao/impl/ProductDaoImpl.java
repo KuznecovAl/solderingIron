@@ -12,7 +12,6 @@ import java.util.List;
 public class ProductDaoImpl extends BaseDao<Product> implements ProductDao<Product> {
 
     public ProductDaoImpl(){
-        super();
         clazz = Product.class;
     }
 

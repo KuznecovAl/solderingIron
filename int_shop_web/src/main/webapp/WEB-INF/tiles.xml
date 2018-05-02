@@ -12,23 +12,23 @@
     </definition>
 
     <definition name="welcomePage" extends="default">
-        <put-attribute name="title" value="WELCOME TO SOLDERING IRON SHOP"/>
+        <put-attribute name="title" value="welcome.title"/>
         <put-attribute name="body" value="/WEB-INF/view/welcome/body.jsp"/>
     </definition>
 
 
     <definition name="loginPage" extends="default">
-        <put-attribute name="title" value="log.in"/>
+        <put-attribute name="title" value="login.title"/>
         <put-attribute name="body" value="/WEB-INF/view/login/body.jsp"/>
     </definition>
 
     <definition name="regPage" extends="default">
-        <put-attribute name="title" value="REGISTRATION"/>
+        <put-attribute name="title" value="registration.title"/>
         <put-attribute name="body" value="/WEB-INF/view/registration/body.jsp"/>
     </definition>
 
     <definition name="settingsPage" extends="default">
-        <put-attribute name="title" value="SETTINGS"/>
+        <put-attribute name="title" value="settings.title"/>
         <put-attribute name="body" value="/WEB-INF/view/settings/body.jsp"/>
     </definition>
 

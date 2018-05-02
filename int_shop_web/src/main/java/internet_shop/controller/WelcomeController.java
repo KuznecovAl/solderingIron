@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class WelcomeController {
     @RequestMapping(value = {"/","/welcome"})
-    public String welcomePage(ModelAndView modelAndView) {
+    public String welcomePage() {
         return "welcomePage";
     }
 }
