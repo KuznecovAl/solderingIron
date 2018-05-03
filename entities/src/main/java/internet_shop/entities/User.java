@@ -1,9 +1,6 @@
 package internet_shop.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -17,6 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name = "USERS")
+@EqualsAndHashCode(exclude = {"orders","address"})
 @ToString(exclude = {"orders","address"})
 public class User {
 

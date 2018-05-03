@@ -51,12 +51,12 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Order get(Serializable id) {
+    public Order get(Long id) {
         return (Order) orderDao.get(id);
     }
 
     @Override
-    public void deleteId(Serializable id) {
+    public void deleteId(Long id) {
         orderDao.delete(id);
     }
 }

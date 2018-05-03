@@ -50,12 +50,12 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product get(Serializable id) {
+    public Product get(Long id) {
         return (Product) productDao.get(id);
     }
 
     @Override
-    public void deleteId(Serializable id) {
+    public void deleteId(Long id) {
         productDao.delete(id);
     }
 }

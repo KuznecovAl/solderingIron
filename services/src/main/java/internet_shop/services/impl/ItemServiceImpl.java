@@ -53,12 +53,12 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public Item get(Serializable id) {
+    public Item get(Long id) {
         return (Item) itemDao.get(id);
     }
 
     @Override
-    public void deleteId(Serializable id) {
+    public void deleteId(Long id) {
         itemDao.delete(id);
     }
 }

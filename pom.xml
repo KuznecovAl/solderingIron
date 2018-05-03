@@ -29,6 +29,8 @@
         <spring.data.version>2.0.6.RELEASE</spring.data.version>
         <security.version>4.0.3.RELEASE</security.version>
         <tiles.version>3.0.5</tiles.version>
+        <javax.servlet.version>3.0.1</javax.servlet.version>
+
     </properties>
 
     <build>
@@ -141,7 +143,17 @@
         </profile>
     </profiles>
 
+
+
     <dependencies>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${javax.servlet.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
