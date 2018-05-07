@@ -1,7 +1,8 @@
 package internet_shop;
 
-import internet_shop.entities.User;
+import internet_shop.config.DataConfig;
 import internet_shop.services.UserService;
+import internet_shop.entities.User;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

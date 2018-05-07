@@ -1,4 +1,4 @@
-package internet_shop.config.init;
+package internet_shop.config;
 
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 

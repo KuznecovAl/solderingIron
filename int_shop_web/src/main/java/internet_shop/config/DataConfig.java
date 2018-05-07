@@ -19,9 +19,9 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan("internet_shop")
+//@ComponentScan("internet_shop")
 @PropertySource("classpath:db.properties")
-@EnableJpaRepositories("internet_shop")
+@EnableJpaRepositories("internet_shop.repository")
 public class DataConfig {
 
 
@@ -61,7 +61,7 @@ public class DataConfig {
         return entityManagerFactoryBean;
     }
 
-    @Bean
+    @Bean(name = "transactionManager")
     public JpaTransactionManager transactionManager() {
         JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(entityManagerFactory().getObject());

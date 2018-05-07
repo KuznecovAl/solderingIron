@@ -7,7 +7,7 @@
     <tr>
 
         <td align="center" valign="center" bgcolor="#deb887">
-            <img alt="SOLDERING IRON" src="${pageContext.request.contextPath}/assests/pic/si_main.jpg"/>
+            <img alt="SOLDERING IRON" src="resources/pic/si_main.jpg"/>
         </td>
 
 

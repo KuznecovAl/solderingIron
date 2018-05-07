@@ -6,9 +6,6 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>dao</module>
-        <module>entities</module>
-        <module>services</module>
         <module>int_shop_web</module>
     </modules>
     <name>solderingIron Web Maven</name>

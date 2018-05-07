@@ -1,7 +1,6 @@
 package internet_shop.services;
 
 import internet_shop.entities.Item;
-import internet_shop.entities.Order;
 
 import java.util.List;
 
