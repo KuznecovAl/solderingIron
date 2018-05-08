@@ -12,8 +12,7 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
 
-
-    @Autowired
+@Autowired
     private UserRepository userRepository;
 
     @Override
@@ -25,7 +24,6 @@ public class UserServiceImpl implements UserService {
     public List<User> getAll() {
         return userRepository.findAll();
     }
-
     @Override
     public User create(User user) {
         user=userRepository.saveAndFlush(user);

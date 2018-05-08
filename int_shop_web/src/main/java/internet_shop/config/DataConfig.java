@@ -19,7 +19,7 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-//@ComponentScan("internet_shop")
+@ComponentScan("internet_shop.repository")
 @PropertySource("classpath:db.properties")
 @EnableJpaRepositories("internet_shop.repository")
 public class DataConfig {
