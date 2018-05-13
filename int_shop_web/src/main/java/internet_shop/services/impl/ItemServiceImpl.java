@@ -1,13 +1,12 @@
 package internet_shop.services.impl;
 
-import internet_shop.dao.ItemDao;
 import internet_shop.entities.Item;
+import internet_shop.repository.ItemRepository;
 import internet_shop.services.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.sql.SQLException;
 import java.util.List;
 
 @Service
@@ -15,49 +14,46 @@ import java.util.List;
 public class ItemServiceImpl implements ItemService {
 
     @Autowired
-    ItemDao itemDao;
+    ItemRepository itemRepository;
+
 
     @Override
-    public List<Item> getByOrderId(Long itemId) {
-        try {
-            return itemDao.getByOrderId(itemId);
-        } catch (SQLException e) {
-            throw new ServiceException("Error getting all Items");
-        }
+    public List<Item> getByOrderId(Long id) {
+        return itemRepository.getByOrderId(id);
     }
 
-    @Override
+    public List<Item> getAll() {
+        return itemRepository.findAll();
+    }
+
     public Item create(Item item) {
-        if (item != null) {
-            return (Item) itemDao.add(item);
-        }
-        return item;
+        return itemRepository.saveAndFlush(item);
     }
 
-    @Override
     public void deleteObj(Item item) {
-        if (item != null) {
-            itemDao.delete(item.getId());
-        }
+        itemRepository.delete(item);
     }
-   
+
     @Override
     public void add(Item item) {
-        itemDao.add(item);
+        itemRepository.saveAndFlush(item);
     }
 
     @Override
     public void update(Item item) {
-        itemDao.update(item);
+        itemRepository.saveAndFlush(item);
     }
 
     @Override
     public Item get(Long id) {
-        return (Item) itemDao.get(id);
+        return itemRepository.findById(id).get();
     }
 
     @Override
     public void deleteId(Long id) {
-        itemDao.delete(id);
+        itemRepository.deleteById(id);
     }
+    
+    
+    
 }

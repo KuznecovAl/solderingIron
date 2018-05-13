@@ -15,7 +15,7 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     ProductRepository productRepository;
 
-    public List<Product> getAllbySupplier(){return productRepository.findAll(byS)}
+    public List<Product> getAllbySupplier(){return productRepository.findAll();}
 
     public List<Product> getAll() {
         return productRepository.findAll();

@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long>, JpaSpecificationExecutor {
+public interface UserRepository extends JpaRepository<User, Long>, JpaSpecificationExecutor<User> {
 //    @Query("select u from User u where u.login = :login")
 //    User getByLogin(@Param("login") String login);
 

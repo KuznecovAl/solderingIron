@@ -11,11 +11,11 @@ import javax.persistence.criteria.Root;
 
 public class ProductSpecifications {
 
-
-    public static Specification<Product> bySupplier(String supp) {
+    public static Specification<Product> getAllBySupplier(String supp) {
         return new Specification<Product>() {
-            public Predicate toPredicate(Root<Product> root, CriteriaQuery query, CriteriaBuilder cb) {
-                return cb.equal(root.get(Product_.supplier), supp);////?????
+            @Override
+            public Predicate toPredicate(Root<Product> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+                return cb.equal(root.get("supplier"), supp);
             }
         };
     }

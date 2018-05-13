@@ -2,6 +2,7 @@ scripts
 .classpath
 .project
 .idea
+.gradle
 *.iml
 target
 bin

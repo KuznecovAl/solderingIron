@@ -1,0 +1,4 @@
+rootProject.name = 'solderingIron'
+include ':int_shop_web'
+
+project(':int_shop_web').projectDir = "$rootDir/int_shop_web" as File
